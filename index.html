@@ -1,35 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Yecord</title>
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
-	<style>
-		@font-face {
-			font-family: 'IBM';
-			src: url('ibm.otf') format('opentype');
-		}
-		
-		body {
-			font-family: 'IBM', sans-serif;
-			background-color: #C7C7C7;
-			color: #000;
-			height: 100vh;
-			margin: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-		}
-		
-		.line {
-			margin-bottom: 32px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YECORD LP</title>
+    <style>
+        @font-face {
+            font-family: 'IBM';
+            src: url('/ibm.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'IBMSmall';
+            src: url('/ibmsmall.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'IBMSmaller';
+            src: url('/ibmsmaller.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            background-color: #C2C2C2;
+            font-family: 'IBM', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding-top: 20px;
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+        /* Reverting to original requested text sizes */
+        .title, .live-feed-text {
+            font-family: 'IBM', sans-serif;
+            font-size: 23.22px;
+            font-weight: bold;
+        }
+
+        .prod-text {
+            font-family: 'IBMSmall', sans-serif;
+            font-size: 13.76px;
+        }
+
+        .live-feed-text {
+            margin-top: 10px;
+        }
+
+        /* Live feed box - keep original size, but scale responsively */
+        .live-feed {
+            margin-top: 30px;
+            width: 90vw; /* Scales responsively based on viewport */
+            max-width: 800px; /* Caps the width at 800px for larger screens */
+            height: calc(90vw * 9 / 16); /* Maintain aspect ratio (16:9) */
+            max-height: 450px; /* Caps the height at 450px */
+            background-color: black;
+            border: 4px solid #262626;
+            border-radius: 25px; /* Curved corners */
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Grey stroke inside */
+        .live-feed::before {
+            content: '';
+            position: absolute;
+            width: 96%;
+            height: 92%;
+            border: 2px solid #666666;
+            border-radius: 20px;
+            top: 4%;
+            left: 2%;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 35px; /* Adjusted position */
+            color: #666;
+            font-family: 'IBMSmaller', sans-serif;
+            font-size: 23.22px; /* Reverted to original size */
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Media queries for smaller screens */
+        @media (max-width: 768px) {
+            .title, .live-feed-text {
+                font-size: 18px; /* Scale text down slightly for tablets */
+            }
+
+            .prod-text {
+                font-size: 12px;
+            }
+
+            .watermark {
+                font-size: 18px; /* Smaller watermark for smaller screens */
+                bottom: 25px;
+            }
+
+            .live-feed {
+                width: 100vw; /* Full width on small screens */
+                height: calc(100vw * 9 / 16); /* Maintain aspect ratio */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title, .live-feed-text {
+                font-size: 16px; /* Scale text further for mobile phones */
+            }
+
+            .prod-text {
+                font-size: 11px;
+            }
+
+            .watermark {
+                font-size: 16px; /* Smaller watermark for mobile phones */
+                bottom: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-	<div class="line">YECORD</div>
-	<div class="line">FIELD TRIP</div>
-	<div class="line">SINGLE</div>
-	<div class="line">2024</div>
+
+<div class="container">
+    <div class="title">
+        TRACK 01: SLIDE
+    </div>
+    <div class="prod-text">
+        Prod. AyoAA, Crimzon, LondonOTT
+    </div>
+    <div class="live-feed-text">
+        LIVE FEED VIA YECORD STAGE
+    </div>
+    <div class="live-feed">
+        <div class="watermark">
+            DOWNLOAD THE ALBUM AT DISCORD.GG/KANYEWEST
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
